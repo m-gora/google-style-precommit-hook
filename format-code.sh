@@ -1,13 +1,14 @@
 #!/usr/bin/env sh
+FORMATTER_JAR="google-java-format-1.11-all-deps.jar"
 mkdir -p .cache
 cd .cache
 if [ ! -f google-java-format-1.7-all-deps.jar ]
 then
-    curl -LJO "https://github.com/google/google-java-format/releases/download/google-java-format-1.11/google-java-format-1.11-all-deps.jar"
+    curl -LJO "https://github.com/google/google-java-format/releases/download/google-java-format-1.11/$FORMATTER_JAR"
     chmod 755 google-java-format-1.7-all-deps.jar
 fi
 cd ..
 
 changed_java_files=$(git diff --cached --name-only --diff-filter=ACMR | grep ".*java$")
 echo $changed_java_files
-java -jar .cache/google-java-format-1.7-all-deps.jar --replace $changed_java_files
+java -jar .cache/$FORMATTER_JAR --replace $changed_java_files
