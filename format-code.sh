@@ -1,10 +1,11 @@
 #!/usr/bin/env sh
-FORMATTER_JAR="google-java-format-1.11-all-deps.jar"
+FORMATTER="google-java-format-1.11"
+FORMATTER_JAR="$FORMATTER-all-deps.jar"
 mkdir -p .cache
 cd .cache
 if [ ! -f google-java-format-1.7-all-deps.jar ]
 then
-    curl -LJO "https://github.com/google/google-java-format/releases/download/google-java-format-1.11/$FORMATTER_JAR"
+    curl -LJO "https://github.com/google/google-java-format/releases/download/$FORMATTER/$FORMATTER_JAR"
     chmod 755 google-java-format-1.7-all-deps.jar
 fi
 cd ..
