@@ -6,10 +6,9 @@ Usage:
 ```
 repos:
 - repo: https://github.com/m-gora/google-style-precommit-hook
-  rev: 1.2
+  rev: 1.2.1
   hooks:
     - id: google-style-java
-```
 
 *Note*: this file stores Google's code style formatter jar in a `.cache/`
 directory so that it doesn't need to be re-downloaded each time.  You will
